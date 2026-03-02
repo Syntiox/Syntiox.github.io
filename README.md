@@ -13,6 +13,4 @@ This repository contains the source code for the official **Syntiox** organizati
 <br />
 
 ---
-<p align="center">
-  Built with HTML, CSS, and JavaScript. Powered by GitHub API.
-</p>
+
