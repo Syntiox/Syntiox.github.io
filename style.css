@@ -1,230 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700;800&display=swap');
-
-:root {
-    /* Dark Mode Variables (Default) */
-    --bg-body: #050505;
-    --bg-card: rgba(30, 30, 30, 0.6);
-    --text-main: #ffffff;
-    --text-muted: #a0a0a0;
-    --primary: #3b82f6;
-    --accent: #8b5cf6;
-    --border: rgba(255, 255, 255, 0.1);
-    --glow: rgba(59, 130, 246, 0.5);
-}
-
-[data-theme="light"] {
-    /* Light Mode Variables */
-    --bg-body: #f3f4f6;
-    --bg-card: rgba(255, 255, 255, 0.8);
-    --text-main: #111827;
-    --text-muted: #4b5563;
-    --primary: #2563eb;
-    --accent: #7c3aed;
-    --border: rgba(0, 0, 0, 0.1);
-    --glow: rgba(37, 99, 235, 0.3);
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.3s, color 0.3s; }
-
-body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: var(--bg-body);
-    color: var(--text-main);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-    background-image: 
-        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
-}
-
-/* --- Theme Toggle Button --- */
-.theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    color: var(--text-main);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: transform 0.2s;
-}
-
-.theme-toggle:hover { transform: rotate(15deg) scale(1.1); }
-
-/* --- Header --- */
-header {
-    text-align: center;
-    padding: 80px 20px 40px;
-}
-
-.logo-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 25px;
-}
-
-.brand-logo {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    border: 4px solid var(--bg-body);
-    box-shadow: 0 0 40px var(--glow);
-    object-fit: cover;
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-
-h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    letter-spacing: -1px;
-    margin-bottom: 10px;
-    background: linear-gradient(135deg, var(--text-main) 0%, var(--text-muted) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.tagline {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-/* --- Grid --- */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    flex-grow: 1;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 30px;
-}
-
-/* --- Glassmorphism Card --- */
-.card {
-    background: var(--bg-card);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    position: relative;
-    overflow: hidden;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    border-color: var(--primary);
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 100px;
-    height: 100px;
-    background: var(--primary);
-    filter: blur(60px);
-    opacity: 0.2;
-    border-radius: 50%;
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.project-name {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--text-main);
-}
-
-.repo-stats {
-    background: rgba(128, 128, 128, 0.1);
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.description {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    flex-grow: 1;
-}
-
-.btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 600;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-    color: white;
-    transition: opacity 0.2s, transform 0.2s;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-}
-
-.btn:hover {
-    opacity: 0.9;
-    transform: scale(1.02);
-}
-
-/* --- Footer --- */
+/* --- Updated Footer Styles --- */
 footer {
     text-align: center;
     padding: 60px 20px;
     border-top: 1px solid var(--border);
     margin-top: 50px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
 }
 
 .contact-box {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .contact-label {
@@ -233,48 +20,63 @@ footer {
     letter-spacing: 2px;
     color: var(--text-muted);
     font-weight: 700;
+    margin-bottom: 10px;
 }
 
-.email-btn {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    padding: 12px 30px;
+.footer-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* GitHub Button Style */
+.github-btn {
+    background-color: #24292e; /* GitHub Brand Color */
+    color: white;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 12px 25px;
     border-radius: 50px;
-    color: var(--text-main);
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.github-btn:hover {
+    background-color: white;
+    color: #24292e;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255,255,255,0.2);
+}
+
+/* Email Button Style */
+.email-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 12px 25px;
+    border-radius: 50px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
 }
 
 .email-btn:hover {
     border-color: var(--primary);
-    background: rgba(59, 130, 246, 0.1);
     color: var(--primary);
+    background: rgba(59, 130, 246, 0.1);
 }
 
 .copyright {
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 0.8rem;
     color: var(--text-muted);
-}
-
-.loading, .empty-state {
-    text-align: center;
-    grid-column: 1 / -1;
-    padding: 50px;
-    color: var(--text-muted);
-}
-
-.empty-state i {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    opacity: 0.5;
-}
-
-@media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    .brand-logo { width: 120px; height: 120px; }
+    opacity: 0.7;
 }
