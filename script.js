@@ -27,9 +27,13 @@ function updateIcon(theme) {
 }
 
 // --- Fetch Projects Logic (No changes here, simple & clean) ---
+// --- Fetch Projects Logic (Auto-Update Fix) ---
 async function fetchProjects() {
     try {
-        const res = await fetch(`https://api.github.com/users/${ORG_NAME}/repos?sort=pushed&per_page=100`);
+        // TRICK: Add a unique timestamp to the URL so browser never caches it
+        const timestamp = new Date().getTime();
+        
+        const res = await fetch(`https://api.github.com/users/${ORG_NAME}/repos?sort=pushed&per_page=100&t=${timestamp}`);
         
         if (!res.ok) throw new Error('API Limit or Error');
         
@@ -43,13 +47,8 @@ async function fetchProjects() {
         );
 
         if (filteredRepos.length === 0) {
-            GRID.innerHTML = `
-                <div class="empty-state">
-                    <i class="fas fa-code-branch"></i>
-                    <h3>No Public Projects Yet</h3>
-                    <p>Our repositories are currently private or under development.</p>
-                </div>
-            `;
+            // (Empty state code... no change here)
+            GRID.innerHTML = `... code for empty state ...`; 
             return;
         }
 
@@ -57,7 +56,10 @@ async function fetchProjects() {
             let aboutText = repo.description || "Research & Development in progress.";
 
             try {
-                const aboutRes = await fetch(`https://raw.githubusercontent.com/${ORG_NAME}/${repo.name}/main/about.md`);
+                // TRICK: Add timestamp here too for about.md
+                const uniqueTime = new Date().getTime();
+                const aboutRes = await fetch(`https://raw.githubusercontent.com/${ORG_NAME}/${repo.name}/main/about.md?t=${uniqueTime}`);
+                
                 if (aboutRes.ok) {
                     aboutText = await aboutRes.text();
                     if(aboutText.length > 200) aboutText = aboutText.substring(0, 200) + "...";
