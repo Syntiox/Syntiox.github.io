@@ -1,4 +1,4 @@
-# 🌐 Syntiox Official Website
+## 🌐 Syntiox Official Website
 
 This repository contains the source code for the official **Syntiox** organization website.
 
