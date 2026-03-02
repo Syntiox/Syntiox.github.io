@@ -6,7 +6,7 @@ This repository contains the source code for the official **Syntiox** organizati
 
 <div align="center">
   <a href="https://syntiox.github.io/">
-    <img src="https://img.shields.io/badge/Visit_Live_Site-000000?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Site" />
+    <img src="https://img.shields.io/badge/Visit_Site-000000?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Site" />
   </a>
 </div>
 
