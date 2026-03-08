@@ -1,34 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Syntiox Community | Members</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Syntiox Community</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="member.css">
 </head>
 <body>
 
     <div class="container">
         <div class="header">
-            <h1>Syntiox Members</h1>
-            <p style="color: #64748b;">Automated Member Directory</p>
+            <h1>Syntiox Community</h1>
+            <p style="color: #64748b;">Automated Profile Discovery</p>
         </div>
 
         <div id="loader" class="loader"></div>
-
         <div id="member-list"></div>
-
-        <footer style="text-align: center; margin-top: 80px; color: #334155; font-size: 0.8rem;">
-            &copy; 2026 Syntiox Organization
-        </footer>
     </div>
 
     <script>
-        // ඔයාගේ GitHub Repo details මෙතන තියෙන්නේ
         const OWNER = 'Syntiox';
         const REPO = 'Syntiox.github.io';
         const PATH = 'Member/people';
@@ -38,43 +29,40 @@
             const loader = document.getElementById('loader');
 
             try {
-                // GitHub API එකෙන් ෆයිල් ලිස්ට් එක ගන්නවා
                 const response = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`);
                 const files = await response.json();
-
                 loader.style.display = 'none';
 
-                if (!Array.isArray(files)) {
-                    memberList.innerHTML = "<p>Error loading files.</p>";
-                    return;
-                }
-
-                // .html ෆයිල් විතරක් filter කරලා එකින් එකට Card එක හදනවා
                 files.forEach(file => {
                     if (file.name.endsWith('.html')) {
-                        // .html කෑල්ල අයින් කරලා නම විතරක් ගන්න
-                        const displayName = file.name.replace('.html', '');
+                        // ෆයිල් එකේ නම ගන්න (sh4lu-z.html -> sh4lu-z)
+                        const username = file.name.replace('.html', '');
                         
                         const card = document.createElement('a');
                         card.href = `people/${file.name}`;
                         card.className = 'member-card';
                         
+                        // GitHub එකෙන් කෙලින්ම Profile Photo එක ගන්නා URL එක
+                        const photoUrl = `https://github.com/${username}.png`;
+
                         card.innerHTML = `
-                            <i class="fa-solid fa-user-gear"></i>
-                            <span>${displayName}</span>
+                            <div class="profile-wrapper">
+                                <img src="${photoUrl}" 
+                                     class="profile-img" 
+                                     alt="${username}" 
+                                     onerror="this.src='https://ui-avatars.com/api/?name=${username}&background=random&color=fff'">
+                            </div>
+                            <span>${username}</span>
                         `;
                         
                         memberList.appendChild(card);
                     }
                 });
-
             } catch (error) {
-                console.error("Error fetching members:", error);
-                loader.innerHTML = "Failed to load community members.";
+                loader.innerHTML = "Error loading members.";
             }
         }
 
-        // Page එක load වෙනකොට function එක run කරන්න
         loadMembers();
     </script>
 </body>
