@@ -3,177 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sh4lu-z | Professional Profile</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <title>sh4lu-z | Tech Innovator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: #0a0a0a;
+            background-color: #050505;
             color: #ffffff;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
         }
 
-        /* Smooth Scroll */
-        html { scroll-behavior: smooth; }
-
-        /* Background Decoration */
+        /* Background Animation */
         .blob {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-            filter: blur(150px);
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            filter: blur(120px);
             border-radius: 50%;
             z-index: -1;
-            opacity: 0.2;
-            top: -100px;
+            opacity: 0.15;
+            top: -200px;
             right: -100px;
         }
 
-        /* Hero Section */
         section {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 50px 20px;
+            padding: 80px 20px;
+        }
+
+        .hero-content {
             text-align: center;
+            margin-bottom: 40px;
         }
 
         .hero-content img {
-            width: 200px;
-            height: 200px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            border: 5px solid #6366f1;
-            margin-bottom: 20px;
-            box-shadow: 0 0 50px rgba(99, 102, 241, 0.3);
+            border: 4px solid #6366f1;
+            margin-bottom: 25px;
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
+            transition: 0.4s;
+        }
+
+        .hero-content img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 60px rgba(99, 102, 241, 0.6);
         }
 
         h1 {
-            font-size: clamp(3rem, 10vw, 6rem);
+            font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 900;
-            text-transform: uppercase;
-            background: linear-gradient(to bottom, #fff, #6366f1);
+            letter-spacing: -2px;
+            background: linear-gradient(to bottom, #fff 40%, #6366f1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            line-height: 1;
+            line-height: 1.1;
         }
 
         .tagline {
-            font-size: 1.5rem;
-            color: #a1a1aa;
-            margin-top: 10px;
-            letter-spacing: 5px;
+            font-size: 1rem;
+            color: #818cf8;
+            margin-top: 15px;
+            letter-spacing: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
-        /* Content Section */
-        .content-box {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+        /* Terminal Window Style */
+        .code-container {
+            width: 100%;
+            max-width: 850px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            margin: 40px 0;
         }
 
-        .content-box h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #6366f1;
+        .code-header {
+            background: #161b22;
+            padding: 12px 20px;
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid #30363d;
         }
 
-        .content-box p {
-            font-size: 1.2rem;
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        pre {
+            padding: 25px;
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-x: auto;
             color: #d1d5db;
-            margin-bottom: 30px;
+            text-align: left;
         }
 
-        /* Big Button */
+        /* Custom Syntax Highlighting */
+        .keyword { color: #ff7b72; }
+        .type { color: #ffa657; }
+        .string { color: #a5d6ff; }
+        .comment { color: #8b949e; }
+        .func { color: #d2a8ff; }
+
         .cta-btn {
+            margin-top: 20px;
             display: inline-block;
-            padding: 20px 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            padding: 16px 45px;
+            font-size: 0.9rem;
+            font-weight: 800;
             text-transform: uppercase;
             color: white;
-            background: linear-gradient(90deg, #6366f1, #a855f7);
-            border-radius: 50px;
+            background: #6366f1;
+            border-radius: 8px;
             text-decoration: none;
-            transition: 0.5s;
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .cta-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.6);
+            background: #4f46e5;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
         }
 
-        /* Footer Style */
         footer {
-            padding: 40px;
-            text-align: center;
+            margin-top: 60px;
             color: #4b5563;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 600px) {
+            pre { font-size: 12px; padding: 15px; }
         }
     </style>
 </head>
 <body>
     <div class="blob"></div>
 
-    <section id="hero">
+    <section>
         <div class="hero-content">
-            <img src="https://github.com/sh4lu-z.png" alt="sh4lu-z">
+            <img src="https://github.com/sh4lu-z.png" alt="sh4lu-z profile">
             <h1>SH4LU-Z</h1>
             <p class="tagline">SYNTIOX CORE MEMBER</p>
         </div>
 
-        <div class="content-box">
-            <h2>About Me</h2>
-            <p>
-// Defining the Tech Innovator Identity
-struct Innovator {
-    identity: &'static str,
-    mission: &'static str,
-    focus: Vec<&'static str>,
+        <div class="code-container">
+            <div class="code-header">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+                <span style="margin-left: 10px; font-size: 12px; color: #8b949e; font-family: 'Fira Code';">about_me.rs</span>
+            </div>
+            <pre>
+<span class="comment">// Identity defined via Systems Programming</span>
+<span class="keyword">struct</span> <span class="type">Innovator</span> {
+    identity: &<span class="string">'static str</span>,
+    mission: &<span class="string">'static str</span>,
+    focus: <span class="type">Vec</span><&<span class="string">'static str</span>>,
 }
 
-impl Innovator {
-    fn initialize() -> Self {
-        Self {
-            identity: "Tech Innovator",
-            mission: "Building secure and intelligent digital ecosystems",
-            focus: vec!["Cybersecurity", "AI Research", "Systems Engineering"],
+<span class="keyword">impl</span> <span class="type">Innovator</span> {
+    <span class="keyword">fn</span> <span class="func">initialize</span>() -> <span class="type">Self</span> {
+        <span class="type">Self</span> {
+            identity: <span class="string">"Tech Innovator"</span>,
+            mission: <span class="string">"Building secure and intelligent ecosystems"</span>,
+            focus: <span class="type">vec!</span>[<span class="string">"Cybersecurity"</span>, <span class="string">"AI Research"</span>, <span class="string">"Systems"</span>],
         }
     }
 
-    fn contribute(&self) {
-        println!("Active in: Syntiox Community");
+    <span class="keyword">fn</span> <span class="func">contribute</span>(&<span class="keyword">self</span>) {
+        <span class="func">println!</span>(<span class="string">"Active in: Syntiox Community"</span>);
     }
 }
 
-fn main() {
-    let sh4lu_z = Innovator::initialize();
-    sh4lu_z.contribute();
-    // Running with zero memory leaks and high performance
-}
-            </p>
-           
-            <a href="https://sh4lu-z.vercel.app/" class="cta-btn">Learn More</a>
+<span class="keyword">fn</span> <span class="func">main</span>() {
+    <span class="keyword">let</span> sh4lu_z = <span class="type">Innovator</span>::<span class="func">initialize</span>();
+    sh4lu_z.<span class="func">contribute</span>();
+    <span class="comment">// Compiled with zero memory leaks.</span>
+}</pre>
         </div>
+        
+        <a href="https://sh4lu-z.vercel.app/" class="cta-btn">View My Projects</a>
 
         <footer>
-            © 2026 Syntiox Community | Designed for sh4lu-z
+            © 2026 SYNTIOX | ENGINEERED FOR PERFORMANCE
         </footer>
     </section>
-
 </body>
 </html>
