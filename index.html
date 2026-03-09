@@ -21,6 +21,14 @@
     <meta property="twitter:description" content="Syntiox is a research-driven organization engineering high-performance systems, advanced AI models, and next-gen cybersecurity tools. Join our open-source community.">
     <meta property="twitter:image" content="https://sh4lu-z.vercel.app/assets/syntiox.png">
     
+    <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('id');
+    if (userId) {
+        window.location.href = "https://syntiox.github.io/Member/people/" + userId + ".html";
+    }
+</script>
+    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
