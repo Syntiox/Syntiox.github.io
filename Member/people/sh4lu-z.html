@@ -1,78 +1,156 @@
 <!DOCTYPE html>
-<html lang="si">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sh4lu-z | Syntiox Member</title>
+    <title>sh4lu-z | Professional Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
         body {
-            background-color: #0f0f13; /* අඳුරු පසුබිම */
-            color: #c9d1d9;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Background Decoration */
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            filter: blur(150px);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.2;
+            top: -100px;
+            right: -100px;
+        }
+
+        /* Hero Section */
+        section {
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            padding: 50px 20px;
+            text-align: center;
         }
-        .profile-card {
-            background-color: #1c1c24;
-            border: 1px solid #2d2d3b;
-            border-radius: 15px;
+
+        .hero-content img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #6366f1;
+            margin-bottom: 20px;
+            box-shadow: 0 0 50px rgba(99, 102, 241, 0.3);
+        }
+
+        h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, #fff, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #a1a1aa;
+            margin-top: 10px;
+            letter-spacing: 5px;
+        }
+
+        /* Content Section */
+        .content-box {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .content-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #6366f1;
+        }
+
+        .content-box p {
+            font-size: 1.2rem;
+            color: #d1d5db;
+            margin-bottom: 30px;
+        }
+
+        /* Big Button */
+        .cta-btn {
+            display: inline-block;
+            padding: 20px 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+            background: linear-gradient(90deg, #6366f1, #a855f7);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.5s;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.6);
+        }
+
+        /* Footer Style */
+        footer {
             padding: 40px;
             text-align: center;
-            max-width: 400px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-        }
-        .profile-card img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid #7c3aed; /* දම් පාට Border එකක් */
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-        .profile-card h1 {
-            margin: 0;
-            color: #ffffff;
-            font-size: 26px;
-            letter-spacing: 1px;
-        }
-        .profile-card p {
-            font-size: 15px;
-            color: #a1a1aa;
-            margin: 15px 0 25px 0;
-            line-height: 1.6;
-        }
-        .btn {
-            background-color: #7c3aed;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-            display: inline-block;
-        }
-        .btn:hover {
-            background-color: #6d28d9;
-            box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+            color: #4b5563;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
+    <div class="blob"></div>
 
-    <div class="profile-card">
-        <img src="https://github.com/sh4lu-z.png" alt="sh4lu-z">
-        
-        <h1>sh4lu-z</h1>
-        
-        <p>
-            මම Full-Stack Developer කෙනෙක් සහ Cybersecurity, AI තාක්ෂණයන් පිළිබඳ පර්යේෂණ කරන කෙනෙක්. මගේ නිර්මාණ සහ වැඩිදුර තොරතුරු සඳහා මගේ වෙබ් අඩවියට පිවිසෙන්න.
-        </p>
-        
-        <a href="https://sh4lu-z.vercel.app/" class="btn">View Full Portfolio</a>
-    </div>
+    <section id="hero">
+        <div class="hero-content">
+            <img src="https://github.com/sh4lu-z.png" alt="sh4lu-z">
+            <h1>SH4LU-Z</h1>
+            <p class="tagline">SYNTIOX CORE MEMBER</p>
+        </div>
+
+        <div class="content-box">
+            <h2>About Me</h2>
+            <p>
+                මම තාක්ෂණික ලෝකයේ නව නිර්මාණ සිදු කරන Full-Stack Developer කෙනෙක්. විශේෂයෙන්ම Cybersecurity සහ AI (Artificial Intelligence) සම්බන්ධ ව්‍යාපෘති සඳහා මම වැඩි උනන්දුවක් දක්වනවා. Syntiox Community එකේ සාමාජිකයෙක් ලෙස මගේ දායකත්වය නිරතුරුවම ලබා දෙනවා.
+            </p>
+            <p>
+                මගේ සම්පූර්ණ Portfolio එක සහ මම මේ වෙනකොට කරලා තියෙන සියලුම වැඩ බලාගන්න පහල තියෙන Button එක ක්ලික් කරන්න.
+            </p>
+            <a href="https://sh4lu-z.vercel.app/" class="cta-btn">Visit Full Website</a>
+        </div>
+
+        <footer>
+            © 2026 Syntiox Community | Designed for sh4lu-z
+        </footer>
+    </section>
 
 </body>
 </html>
