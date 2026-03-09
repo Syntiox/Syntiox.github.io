@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+    <script>
+        // URL එකේ අගට එන නම ලබා ගැනීම (උදා: go.html?id=ruk-zh4n)
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('id');
+
+        if (userId) {
+            // නම තිබේ නම් අදාළ සාමාජික පිටුවට යොමු කිරීම
+            window.location.href = "https://syntiox.github.io/Member/people/" + userId + ".html";
+        } else {
+            // නමක් සඳහන් කර නැතිනම් ප්‍රධාන සාමාජික ලැයිස්තුවට යොමු කිරීම
+            window.location.href = "https://syntiox.github.io/Member/";
+        }
+    </script>
+</head>
+<body>
+    <p>මොහොතක් රැඳී සිටින්න, ඔබව අදාළ පිටුවට යොමු කරමින් පවතී...</p>
+</body>
+</html>
