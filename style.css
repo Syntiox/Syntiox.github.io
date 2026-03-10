@@ -320,3 +320,45 @@ footer {
     .brand-logo { width: 130px; height: 130px; }
     .grid { grid-template-columns: 1fr; }
 }
+
+/* Members Floating Button */
+.member-toggle {
+    position: fixed;
+    top: 80px; /* Theme toggle එකට යටින් තියෙන්න */
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color, #ffffff);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.member-toggle:hover {
+    background: #007bff; /* කැමති පාටක් දෙන්න - Syntiox blue එක වගේ */
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+.member-toggle i {
+    font-size: 1.2rem;
+}
+
+/* Mobile වලදී පොඩ්ඩක් වෙනස් කරන්න ඕනේ නම් */
+@media (max-width: 768px) {
+    .member-toggle {
+        top: auto;
+        bottom: 20px; /* Mobile වලදී පහළට දැම්මා ලේසි වෙන්න */
+        right: 20px;
+    }
+}
