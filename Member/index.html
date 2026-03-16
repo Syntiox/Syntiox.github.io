@@ -22,7 +22,7 @@
     <script>
         const OWNER = 'Syntiox';
         const REPO = 'Syntiox.github.io';
-        const PATH = 'Member'; // දැන් PATH එක කෙලින්ම Member ෆෝල්ඩර් එක
+        const PATH = 'Member'; 
 
         async function loadMembers() {
             const memberList = document.getElementById('member-list');
@@ -34,12 +34,12 @@
                 loader.style.display = 'none';
 
                 items.forEach(item => {
-                    // මෙතනදී අපි බලන්නේ item එක type එක "dir" (folder) ද කියලා
+
                     if (item.type === 'dir') {
-                        const username = item.name; // ෆෝල්ඩර් එකේ නම username එක විදිහට ගන්නවා
+                        const username = item.name; 
                         
                         const card = document.createElement('a');
-                        // ලින්ක් එක යන්නේ අදාළ ෆෝල්ඩර් එක ඇතුළට (උදා: Member/username/)
+
                         card.href = `${username}/`; 
                         card.className = 'member-card';
                         
