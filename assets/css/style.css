@@ -452,7 +452,7 @@ h1, h2, h3, .logo-text {
 }
 
 .marquee-container {
-    display: flex;
+    display: block;
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -473,8 +473,9 @@ h1, h2, h3, .logo-text {
 .marquee-track {
     display: flex;
     gap: 2rem;
-    padding: 1rem 0 3rem 0;
+    padding: 1rem 2rem 3rem 2rem;
     width: max-content;
+    margin: 0 auto;
 }
 
 .project-card {
@@ -573,8 +574,9 @@ h1, h2, h3, .logo-text {
 }
 
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem;
 }
 
@@ -586,6 +588,8 @@ h1, h2, h3, .logo-text {
     border: 1px solid var(--border-color);
     cursor: pointer;
     background: #f8f9fa;
+    flex: 1 1 280px;
+    max-width: 450px;
 }
 
 .gallery-item img {
@@ -873,23 +877,25 @@ footer {
     .section-title { font-size: 2rem; }
     .section-subtitle { font-size: 1rem; }
     .project-card {
-        min-width: 280px;
-        max-width: 280px;
-        padding: 1.5rem;
+        min-width: 240px;
+        max-width: 240px;
+        padding: 1.2rem;
     }
     .project-title { font-size: 1.2rem; }
     .team-card {
-        min-width: 200px;
-        padding: 1.5rem;
+        min-width: 160px;
+        padding: 1rem;
     }
     .team-img-wrapper {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
-    .team-name { font-size: 1.1rem; }
-    .team-role { font-size: 0.85rem; }
+    .team-name { font-size: 1rem; }
+    .team-role { font-size: 0.8rem; }
     .gallery-grid {
         display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         gap: 1rem;
